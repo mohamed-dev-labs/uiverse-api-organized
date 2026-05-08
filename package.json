@@ -1,25 +1,15 @@
 {
   "name": "uiverse-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "Organized API for Uiverse Galaxy elements",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": "^11.0.8",
-      "onFail": "download"
-    }
-  },
   "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1",
-    "fuse.js": "^7.3.0"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "fuse.js": "^6.6.2"
   }
 }
