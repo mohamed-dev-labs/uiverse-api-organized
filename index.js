@@ -11,6 +11,7 @@ app.use(express.json());
 
 // Load data
 const elements = JSON.parse(fs.readFileSync('./data/elements.json', 'utf-8'));
+const versionInfo = JSON.parse(fs.readFileSync('./data/version.json', 'utf-8'));
 
 // Initialize Fuse.js for searching
 const fuse = new Fuse(elements, {
@@ -22,15 +23,23 @@ const fuse = new Fuse(elements, {
 app.get('/', (req, res) => {
   res.json({
     message: "Welcome to the Uiverse Galaxy API",
+    version: versionInfo.version,
+    last_updated: versionInfo.last_updated,
     endpoints: {
       all: "/api/elements",
       categories: "/api/categories",
       search: "/api/search?q=button",
       byCategory: "/api/category/:name",
-      byId: "/api/element/:id"
+      byId: "/api/element/:id",
+      comprehensive: "/api/comprehensive",
+      version: "/api/version"
     },
     total_elements: elements.length
   });
+});
+
+app.get('/api/version', (req, res) => {
+  res.json(versionInfo);
 });
 
 app.get('/api/elements', (req, res) => {
