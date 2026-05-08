@@ -74,6 +74,22 @@ app.get('/api/search', (req, res) => {
   res.json(results);
 });
 
+app.get('/api/comprehensive', (req, res) => {
+  const comprehensive = elements.reduce((acc, element) => {
+    if (!acc[element.category]) {
+      acc[element.category] = [];
+    }
+    acc[element.category].push(element);
+    return acc;
+  }, {});
+  
+  res.json({
+    total_elements: elements.length,
+    categories_count: Object.keys(comprehensive).length,
+    data: comprehensive
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

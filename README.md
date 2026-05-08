@@ -17,6 +17,7 @@ This is a fully organized, public, and unlimited API for the [Uiverse.io Galaxy]
 | `GET /api/category/:name` | Get elements by category |
 | `GET /api/element/:id` | Get a specific element by ID |
 | `GET /api/search?q=query` | Search for elements |
+| `GET /api/comprehensive` | Get all elements grouped by category |
 
 ## Deployment
 To deploy this API to your own Vercel account:
